@@ -1,0 +1,5 @@
+{
+  "watch": ["*.js", "routes", "middleware"],
+  "ext": "js",
+  "ignore": ["gangotri.json", "*.json"]
+}

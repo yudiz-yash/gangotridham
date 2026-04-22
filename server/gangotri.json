@@ -1,0 +1,74 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@gangotridham.org",
+      "name": "Admin",
+      "password": "$2a$12$GrBxjB38pP9wkguJmSIfOeMwLJV9W.Rtm1Esa65PGzq0IHwM2otZ2",
+      "created_at": "2026-04-22T06:25:05.271Z"
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "title": "Gangotri Dham Kapat Udghatan",
+      "title_hindi": "गंगोत्री धाम कपाट उद्घाटन",
+      "description": "Opening of Gangotri Dham gates on Akshay Tritiya 2025",
+      "description_hindi": "अक्षय तृतीया के पावन पर्व पर श्री गंगोत्री धाम के कपाट माँ गंगा के भक्तों के लिए खोले जाएंगे।",
+      "event_date": "2025-04-30",
+      "event_type": "kapat",
+      "is_featured": 1,
+      "is_published": 1,
+      "created_at": "2026-04-22T06:25:05.271Z",
+      "updated_at": "2026-04-22T06:25:05.271Z"
+    },
+    {
+      "id": 2,
+      "title": "Ganga Dussehra Mahotsav",
+      "title_hindi": "गंगा दशहरा महोत्सव",
+      "description": "Grand celebration of Ganga Dussehra",
+      "description_hindi": "गंगा दशहरा के अवसर पर विशेष पूजन, रुद्राभिषेक एवं गंगा आरती का भव्य आयोजन।",
+      "event_date": "2025-06-05",
+      "event_type": "festival",
+      "is_featured": 0,
+      "is_published": 1,
+      "created_at": "2026-04-22T06:25:05.271Z",
+      "updated_at": "2026-04-22T06:25:05.271Z"
+    },
+    {
+      "id": 3,
+      "title": "Pashupatinath Jalabhishek Yatra",
+      "title_hindi": "पशुपतिनाथ जलाभिषेक यात्रा",
+      "description": "Annual Gangajal Yatra to Pashupatinath Temple",
+      "description_hindi": "रावल जी महाराज 1100 लीटर गंगाजल लेकर काठमांडू जाएंगे।",
+      "event_date": "2025-11-01",
+      "event_type": "yatra",
+      "is_featured": 0,
+      "is_published": 1,
+      "created_at": "2026-04-22T06:25:05.271Z",
+      "updated_at": "2026-04-22T06:25:05.271Z"
+    },
+    {
+      "id": 4,
+      "title": "Sheetkalin Kapat Band",
+      "title_hindi": "शीतकालीन कपाट बंद",
+      "description": "Closing of Gangotri Dham for winter",
+      "description_hindi": "दीपावली के दूसरे दिन कपाट बंद।",
+      "event_date": "2025-10-23",
+      "event_type": "kapat",
+      "is_featured": 0,
+      "is_published": 1,
+      "created_at": "2026-04-22T06:25:05.271Z",
+      "updated_at": "2026-04-22T06:25:05.271Z"
+    }
+  ],
+  "bookings": [],
+  "contact_messages": [],
+  "kapat": {
+    "is_open": 1,
+    "open_date": "2026-04-22",
+    "close_date": "2026-04-30",
+    "announcement": "श्री गंगोत्री धाम के कपाट अक्षय तृतीया (अप्रैल/मई 2025) को खुलेंगे — तिथि शीघ्र घोषित होगी",
+    "updated_at": "2026-04-22T07:15:02.923Z"
+  }
+}
