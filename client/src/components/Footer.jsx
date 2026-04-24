@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const LINKS = [
   { to: '/', label: 'होम' }, { to: '/events', label: 'कार्यक्रम' },
@@ -12,7 +13,7 @@ export default function Footer() {
       <div className="container">
         <div className="footer__grid">
           <div className="footer__brand">
-            <span className="om">ॐ</span>
+            <img src={logo} alt="Gangotri Dham" className="footer__logo" />
             <h4>GANGOTRI DHAM</h4>
             <div className="jai">जय गंगा मैया 🙏</div>
             <p>श्री गंगोत्री धाम — उत्तराखंड के पवित्र चार धामों में से एक, जहाँ माँ गंगा का अवतरण हुआ।</p>

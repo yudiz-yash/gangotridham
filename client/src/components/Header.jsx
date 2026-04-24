@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const NAV = [
   { to: '/',        label: 'होम' },
@@ -9,27 +10,27 @@ const NAV = [
 ];
 
 export default function Header() {
-  const [scrolled,    setScrolled]    = useState(false);
-  const [mobileOpen,  setMobileOpen]  = useState(false);
+  const [scrolled,   setScrolled]   = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 10);
+    fn();
     window.addEventListener('scroll', fn, { passive: true });
     return () => window.removeEventListener('scroll', fn);
   }, []);
 
   useEffect(() => setMobileOpen(false), [location]);
 
+  const solid = scrolled || !isHome;
+
   return (
-    <header className={`header ${scrolled ? 'header--scrolled' : ''}`}>
+    <header className={`header ${solid ? 'header--scrolled' : ''}`}>
       <div className="header__inner">
         <Link to="/" className="header__logo">
-          <div className="header__emblem">ॐ</div>
-          <div className="header__logo-text">
-            <span className="en">GANGOTRI DHAM</span>
-            <span className="hi">श्री गंगोत्री धाम</span>
-          </div>
+          <img src={logo} alt="Gangotri Dham" className="header__emblem" />
         </Link>
 
         <nav className="header__nav">
@@ -39,10 +40,6 @@ export default function Header() {
             </NavLink>
           ))}
         </nav>
-
-        <Link to="/booking" className="btn btn-primary btn-sm header__cta" style={{ display: 'none' }}>
-          पूजा बुकिंग करें
-        </Link>
 
         <button
           className={`header__hamburger ${mobileOpen ? 'open' : ''}`}

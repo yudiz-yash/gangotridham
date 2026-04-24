@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../api';
+import banner1 from '../assets/home-banner.jpg';
+import banner2 from '../assets/home-banner-2.jpg';
+import banner3 from '../assets/home-banner-3.jpg';
+import rawalPhoto from '../assets/shivprakashji.jpeg';
+
+const BANNERS = [banner1, banner2, banner3];
 
 /* ── Intersection observer for fade-in ── */
 function useReveal() {
@@ -35,28 +41,60 @@ const GALLERY = [
 
 export default function Home() {
   const [kapat, setKapat] = useState(null);
+  const [slide, setSlide] = useState(0);
   const r1 = useReveal(), r2 = useReveal(), r3 = useReveal(), r4 = useReveal(), r5 = useReveal();
 
   useEffect(() => { api.getKapat().then(setKapat).catch(() => {}); }, []);
 
+  useEffect(() => {
+    const t = setInterval(() => setSlide(s => (s + 1) % BANNERS.length), 4500);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <>
-      {/* ── Hero ── */}
-      <section className="hero" id="home">
-        <div className="hero__om">ॐ</div>
-        <h1 className="hero__title">GANGOTRI DHAM</h1>
-        <p className="hero__subtitle">श्री गंगोत्री धाम — देवभूमि उत्तराखंड</p>
-        <div className="hero__buttons">
-          <Link to="/booking" className="btn btn-primary btn-lg">पूजा बुकिंग करें 🙏</Link>
-          <a href="#about" className="btn btn-outline btn-lg" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.6)' }}>धाम परिचय पढ़ें</a>
-        </div>
-        {kapat && (
-          <div className="hero__kapat-box">
-            <h3>{kapat.is_open ? '🟢 कपाट अभी खुले हैं' : '🔔 कपाट उद्घाटन सूचना'}</h3>
-            <p>{kapat.announcement || (kapat.is_open ? `श्री गंगोत्री धाम के कपाट खुले हैं।${kapat.close_date ? ` बंद होने की तिथि: ${kapat.close_date}` : ''}` : 'श्री गंगोत्री धाम के कपाट शीतकाल के लिए बंद हैं।')}</p>
-            {!kapat.is_open && <span className="hero__badge">⭐ अक्षय तृतीया 2025 — तिथि घोषणा शीघ्र</span>}
+      {/* ── Hero / Banner Slider ── */}
+      <section className="hero" id="home" style={{ background: 'none', backgroundColor: '#1C1712' }}>
+        {/* Slider images */}
+        {BANNERS.map((img, i) => (
+          <div
+            key={i}
+            className={`hero__slide${i === slide ? ' hero__slide--active' : ''}`}
+            style={{ backgroundImage: `url(${img})` }}
+          />
+        ))}
+        {/* Dark overlay for readability */}
+        <div className="hero__overlay" />
+
+        {/* Hero content */}
+        <div className="hero__content">
+          <div className="hero__om">ॐ</div>
+          <h1 className="hero__title">GANGOTRI DHAM</h1>
+          <p className="hero__subtitle">श्री गंगोत्री धाम — देवभूमि उत्तराखंड</p>
+          <div className="hero__buttons">
+            <Link to="/booking" className="btn btn-primary btn-lg">पूजा बुकिंग करें 🙏</Link>
+            <a href="#about" className="btn btn-outline btn-lg" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.6)' }}>धाम परिचय पढ़ें</a>
           </div>
-        )}
+          {kapat && (
+            <div className="hero__kapat-box">
+              <h3>{kapat.is_open ? '🟢 कपाट अभी खुले हैं' : '🔔 कपाट उद्घाटन सूचना'}</h3>
+              <p>{kapat.announcement || (kapat.is_open ? `श्री गंगोत्री धाम के कपाट खुले हैं।${kapat.close_date ? ` बंद होने की तिथि: ${kapat.close_date}` : ''}` : 'श्री गंगोत्री धाम के कपाट शीतकाल के लिए बंद हैं।')}</p>
+              {!kapat.is_open && <span className="hero__badge">⭐ अक्षय तृतीया 2025 — तिथि घोषणा शीघ्र</span>}
+            </div>
+          )}
+        </div>
+
+        {/* Prev / Next arrows */}
+        <button className="hero__prev" onClick={() => setSlide(s => (s - 1 + BANNERS.length) % BANNERS.length)} aria-label="Previous">&#8249;</button>
+        <button className="hero__next" onClick={() => setSlide(s => (s + 1) % BANNERS.length)} aria-label="Next">&#8250;</button>
+
+        {/* Dot indicators */}
+        <div className="hero__dots">
+          {BANNERS.map((_, i) => (
+            <button key={i} className={`hero__dot${i === slide ? ' hero__dot--active' : ''}`} onClick={() => setSlide(i)} aria-label={`Slide ${i + 1}`} />
+          ))}
+        </div>
+
         <button className="hero__scroll" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>↓</button>
       </section>
 
@@ -105,9 +143,8 @@ export default function Home() {
           <div ref={r4} className="rawal-layout">
             <div className="rawal-photo-col">
               <div className="rawal-photo-card">
-                <div className="rawal-photo-placeholder">
-                  <div className="ph-icon">📷</div>
-                  <div className="ph-note">रावल जी का फ़ोटो यहाँ लगाएं<br /><small style={{opacity:0.7}}>Upload photo here</small></div>
+                <div className="rawal-photo-img-wrap">
+                  <img src={rawalPhoto} alt="परम पूज्य शिवप्रकाश जी महाराज" className="rawal-photo-img" />
                 </div>
                 <div className="rawal-nameplate">
                   <div className="name">परम पूज्य शिवप्रकाश जी महाराज</div>
@@ -149,9 +186,6 @@ export default function Home() {
                 <div className="gallery-card__overlay">🔍</div>
               </div>
             ))}
-          </div>
-          <div style={{ textAlign: 'center', marginTop: 'var(--s6)' }}>
-            <span className="gallery-note">📷 यहाँ वास्तविक फ़ोटो अपलोड करें — Upload actual photos here</span>
           </div>
         </div>
       </section>

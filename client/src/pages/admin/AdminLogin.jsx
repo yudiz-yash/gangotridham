@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import logo from '../../assets/logo.png';
 
 export default function AdminLogin() {
   const [form, setForm]       = useState({ email: '', password: '' });
@@ -27,7 +28,7 @@ export default function AdminLogin() {
     <div className="admin-login">
       <div className="card admin-login__card">
         <div className="admin-login__header">
-          <div className="emblem">ॐ</div>
+          <img src={logo} alt="Gangotri Dham" className="emblem" style={{ objectFit: 'cover', background: 'none' }} />
           <h1>Admin Panel</h1>
           <p>श्री गंगोत्री धाम — Admin Access</p>
         </div>

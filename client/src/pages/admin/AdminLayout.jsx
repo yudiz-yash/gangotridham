@@ -1,5 +1,6 @@
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import logo from '../../assets/logo.png';
 
 const NAV = [
   { to: '/admin',          icon: '📊', label: 'Dashboard',    end: true },
@@ -20,7 +21,7 @@ export default function AdminLayout({ children }) {
       {/* Sidebar */}
       <aside className="admin-sidebar">
         <Link to="/admin" className="admin-sidebar__logo">
-          <div className="emblem" style={{ fontFamily: 'var(--font-deva)' }}>ॐ</div>
+          <img src={logo} alt="Gangotri Dham" className="emblem" style={{ objectFit: 'cover', background: 'none' }} />
           <div className="lbl">Gangotri Dham<span className="sub">Admin Panel</span></div>
         </Link>
 
