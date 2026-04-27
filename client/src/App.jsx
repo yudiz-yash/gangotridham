@@ -18,6 +18,8 @@ import ManageEvents  from './pages/admin/ManageEvents';
 import ManageBookings from './pages/admin/ManageBookings';
 import ManageKapat   from './pages/admin/ManageKapat';
 import ManageContact from './pages/admin/ManageContact';
+import ManageGallery  from './pages/admin/ManageGallery';
+import ManageHomepage from './pages/admin/ManageHomepage';
 
 function ProtectedRoute({ children }) {
   const { user, ready } = useAuth();
@@ -59,6 +61,8 @@ export default function App() {
                   <Route path="bookings"    element={<ManageBookings />} />
                   <Route path="kapat"       element={<ManageKapat />} />
                   <Route path="contact"     element={<ManageContact />} />
+                  <Route path="gallery"     element={<ManageGallery />} />
+                  <Route path="homepage"    element={<ManageHomepage />} />
                 </Routes>
               </AdminLayout>
             </ProtectedRoute>

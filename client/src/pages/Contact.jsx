@@ -3,8 +3,8 @@ import { api } from '../api';
 
 const CONTACTS = [
   { icon: '📍', label: 'पता', val: 'श्री गंगोत्री धाम, उत्तरकाशी, उत्तराखंड — 249193' },
-  { icon: '📞', label: 'फ़ोन', val: '+91 XXXXX XXXXX (प्रतिनिधि से संपर्क करें)' },
-  { icon: '✉️', label: 'ईमेल', val: 'info@gangotridham.org' },
+  { icon: '📞', label: 'फ़ोन', val: '+91-9411174750' },
+  { icon: '✉️', label: 'ईमेल', val: 'rawalshivprakashjimaharaj@yahoo.com' },
   { icon: '🕐', label: 'मंदिर समय', val: 'प्रातः 6:00 — सायं 8:00 (ग्रीष्मकाल)' },
   { icon: '🔔', label: 'कपाट अवधि', val: 'अक्षय तृतीया से दीपावली+1 (अप्रैल/मई — अक्टूबर/नवंबर)' },
 ];

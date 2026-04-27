@@ -7,6 +7,8 @@ const NAV = [
   { to: '/admin/kapat',    icon: '🔔', label: 'Kapat Status' },
   { to: '/admin/events',   icon: '📅', label: 'Events / News' },
   { to: '/admin/bookings', icon: '📝', label: 'Puja Bookings' },
+  { to: '/admin/gallery',  icon: '🖼️', label: 'Gallery' },
+  { to: '/admin/homepage', icon: '🏠', label: 'Homepage Content' },
   { to: '/admin/contact',  icon: '💬', label: 'Messages' },
 ];
 
@@ -21,7 +23,7 @@ export default function AdminLayout({ children }) {
       {/* Sidebar */}
       <aside className="admin-sidebar">
         <Link to="/admin" className="admin-sidebar__logo">
-          <img src={logo} alt="Gangotri Dham" className="emblem" style={{ objectFit: 'cover', background: 'none' }} />
+          <img src={logo} alt="Gangotri Dham" className="emblem" />
           <div className="lbl">Gangotri Dham<span className="sub">Admin Panel</span></div>
         </Link>
 

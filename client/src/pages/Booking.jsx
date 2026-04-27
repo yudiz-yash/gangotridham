@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { api } from '../api';
 
 const PUJA_TYPES = [
-  { emoji: '🕉️', label: 'रुद्राभिषेक' },
-  { emoji: '🌺', label: 'गंगा पूजन' },
-  { emoji: '🔱', label: 'विशेष अभिषेक' },
-  { emoji: '🪔', label: 'दीपदान' },
-  { emoji: '🌸', label: 'सत्यनारायण कथा' },
-  { emoji: '🙏', label: 'पितृ तर्पण' },
+  { emoji: '🪔', label: 'गंगा आरती' },
+  { emoji: '🌺', label: 'श्री गंगा जी की पांच उपचार' },
+  { emoji: '📿', label: 'सहस्त्रनाम पाठ' },
+  { emoji: '🕉️', label: 'विभिन्न प्रकार की पूजा' },
+  { emoji: '🙏', label: 'पूर्वजों के नाम से ब्राह्मण भंडारा' },
 ];
 const PURPOSES = ['मनोकामना पूर्ति', 'पितृ शांति', 'स्वास्थ्य लाभ', 'विवाह', 'व्यापार वृद्धि', 'अन्य'];
 

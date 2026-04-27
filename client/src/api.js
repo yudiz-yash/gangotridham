@@ -50,4 +50,18 @@ export const api = {
   getMessages:   ()     => request('/contact'),
   updateMessage: (id, body) => request(`/contact/${id}`, { method: 'PATCH', body: JSON.stringify(body) }),
   deleteMessage: (id)   => request(`/contact/${id}`, { method: 'DELETE' }),
+
+  // Public — site content (homepage sections)
+  getAllContent:    ()              => request('/content'),
+  getContent:      (section)       => request(`/content/${section}`),
+  updateContent:   (section, data) => request(`/content/${section}`, { method: 'PUT', body: JSON.stringify(data) }),
+
+  // Public — gallery
+  getGallery: () => request('/gallery'),
+
+  // Admin — gallery
+  getAllGallery:        ()          => request('/gallery/all'),
+  createGalleryImage:  (body)      => request('/gallery',       { method: 'POST',   body: JSON.stringify(body) }),
+  updateGalleryImage:  (id, body)  => request(`/gallery/${id}`, { method: 'PUT',    body: JSON.stringify(body) }),
+  deleteGalleryImage:  (id)        => request(`/gallery/${id}`, { method: 'DELETE' }),
 };

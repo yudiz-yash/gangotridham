@@ -28,7 +28,7 @@ export default function AdminLogin() {
     <div className="admin-login">
       <div className="card admin-login__card">
         <div className="admin-login__header">
-          <img src={logo} alt="Gangotri Dham" className="emblem" style={{ objectFit: 'cover', background: 'none' }} />
+          <img src={logo} alt="Gangotri Dham" className="emblem" />
           <h1>Admin Panel</h1>
           <p>श्री गंगोत्री धाम — Admin Access</p>
         </div>
